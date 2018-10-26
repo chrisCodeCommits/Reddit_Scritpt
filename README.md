@@ -1,3 +1,2 @@
-
-#Python Scripts to interact with Reddit API
+# Python Scripts to interact with Reddit API
 
