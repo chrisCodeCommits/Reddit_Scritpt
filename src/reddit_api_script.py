@@ -10,13 +10,14 @@ A function that calls Twilios API to send a Text with matching results
 import praw
 
 
-# 1
+# 1 ###########################################################################
+
 subreddits_list = ['forehire','forehire2','freelance']
 
 
 
+# 2 ###########################################################################
 
-# 2
 # A function to call Reddit's API 
 # with passed in subreddit name as argument 
 def call_reddit(subreddit_name):
@@ -42,10 +43,8 @@ def call_reddit(subreddit_name):
 
 
 
+# 3 #############################################################################
 
-
-
-# 3
 # This function process search results according to the matching keyword 
 # passed as an argument.
 def process_results(func, number_of_results,term_to_look_for):
@@ -83,13 +82,8 @@ def process_results(func, number_of_results,term_to_look_for):
 
 
 
+# 4 ###############################################################################
 
-
-
-
-
-
-# 4
 # This function call each subreddit in the given list
 def call_subreddits_list(names_list):
 
