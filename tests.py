@@ -30,9 +30,22 @@ reddit = praw.Reddit(
 subreddit = reddit.subreddit('forhire')
 
 
-hot_post = subreddit.hot(limit = 5)
+new_post = subreddit.new(limit = 20)
 
 
+#titles = submition.titles(limit=3)
+
+'''
 for submition in hot_post:
 	if not submition.stickied:
-		print (submition.title)
+		if '[HIRING]' in submission.title:
+			print (submission.title)
+
+'''
+
+
+
+for submission in new_post:
+	if not submission.stickied and 'Designer' in submission.title:
+		print (submission.title)
+

@@ -10,12 +10,20 @@ A function that calls Twilios API to send a Text with matching results
 import praw
 
 
+# 1
+subreddits_list = ['forehire','forehire2','freelance']
 
 
+
+
+# 2
+# A function to call Reddit's API 
+# with passed in subreddit name as argument 
 def call_reddit(subreddit_name):
 
-	subreddit_name = str(subreddit_name)
-
+	# Notice the imported PRAW at the biggining of this script,
+	# in order to use PRAW, the following 5 pieces of information
+	# are required.
 	reddit = praw.Reddit(
 
 		client_id		= '_VLlkPOoDXoaPQ',
@@ -36,8 +44,59 @@ def call_reddit(subreddit_name):
 
 
 
-hot_post = call_reddit('forhire').hot(limit = 5)
+
+# 3
+# This function process search results according to the matching keyword 
+# passed as an argument.
+def process_results(func, number_of_results,term_to_look_for):
 
 
-for submition in hot_post:
-	print (submition)
+	new_post = func.new(limit = number_of_results)
+
+
+
+	# this is where is the issue, this comprehension list is not working properly
+	# it's not returnting the number os posts requested
+	posting_list = [
+
+	submission.title for submission in new_post if not submission.stickied 
+
+	] 
+
+
+
+	filtered_by_terms = [ 
+
+	each_title for each_title in posting_list if term_to_look_for in each_title
+
+	]
+
+
+
+	return filtered_by_terms
+
+
+
+# TEST
+# print(process_results(call_reddit('forehire'),50,'[Hiring]'))
+
+
+
+
+
+
+
+
+
+
+# 3
+# This function call each subreddit in the given list
+def call_subreddits_list(names_list):
+
+	called_subreddits = map(call_reddit, subreddits_list)
+
+	return list(called_subreddits)
+
+
+
+
