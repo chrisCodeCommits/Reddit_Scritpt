@@ -101,8 +101,8 @@ def call_subreddits_list(names_list):
 # This function call Twilio API
 def call_twilio():
 	
-	account_sid = 'ACf7e44e9a6566ffc16a3b9dbb40b3ea08'
-	auth_token = '425aa3e13fe91eb3cbcaf2602dd37f41'
+	account_sid = 'ACf7e44e9a6566ffc16a3b9dxxxxxxxxxx'
+	auth_token = '425aa3e13fe91eb3cbcaf2xxxxxxxxxx'
 	client = Client(account_sid, auth_token)
 
 	return client
