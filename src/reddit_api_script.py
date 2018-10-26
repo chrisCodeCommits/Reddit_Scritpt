@@ -49,7 +49,7 @@ def call_reddit(subreddit_name):
 
 # This function process search results according to the matching keyword 
 # passed as an argument.
-def process_results(func, number_of_results,term_to_look_for):
+def process_results(func, number_of_results, term_to_look_for):
 
 
 	new_post = func.new(limit = number_of_results)
@@ -57,7 +57,7 @@ def process_results(func, number_of_results,term_to_look_for):
 
 
 	# this is where is the issue, this comprehension list is not working properly
-	# it's not returnting the number os posts requested
+	# it's not returning the number of posts requested
 	posting_list = [
 
 	submission.title for submission in new_post if not submission.stickied 
