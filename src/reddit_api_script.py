@@ -89,7 +89,7 @@ def process_results(func, number_of_results,term_to_look_for):
 
 
 
-# 3
+# 4
 # This function call each subreddit in the given list
 def call_subreddits_list(names_list):
 
