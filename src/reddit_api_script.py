@@ -8,6 +8,8 @@ A function that calls Twilios API to send a Text with matching results
 '''
 
 import praw
+from twilio.rest import Client
+
 
 
 # 1 ###########################################################################
@@ -93,4 +95,14 @@ def call_subreddits_list(names_list):
 
 
 
+
+# 5 ###############################################################################
+
+def call_twilio():
+	
+	account_sid = 'ACf7e44e9a6566ffc16a3b9dbb40b3ea08'
+	auth_token = '425aa3e13fe91eb3cbcaf2602dd37f41'
+	client = Client(account_sid, auth_token)
+
+	return client
 
