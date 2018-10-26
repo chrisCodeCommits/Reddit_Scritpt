@@ -98,6 +98,7 @@ def call_subreddits_list(names_list):
 
 # 5 ###############################################################################
 
+# This function call Twilio API
 def call_twilio():
 	
 	account_sid = 'ACf7e44e9a6566ffc16a3b9dbb40b3ea08'
