@@ -22,8 +22,10 @@ import json
 # Pulling data from the API
 sw_api_request = requests.get("https://swapi.co/api/people/?page=2&format=json")
 
+print(sw_api_request)
+'''
 # Making the data usuable for Python
-sw_usable_data = json.load(sw_api_request)
+sw_usable_data = json.loads(sw_api_request)
 
 
 
@@ -54,6 +56,6 @@ for each_character in swapi_people:
     find_next += 1
 
 
-
+'''
 
 
