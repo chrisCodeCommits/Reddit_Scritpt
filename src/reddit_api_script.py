@@ -22,13 +22,13 @@ from twilio.rest import Client
 # are required.
 reddit = praw.Reddit(
 
-	client_id		= '_VLlkPOoDXoaPQ',
-	client_secret	= 'c5jO1y_wSigePj1NE0aG-vjQcag',
-	password		= 'chrisPractice2018',
-	user_agent		= 'testscript by /u/chrisPractice2018',
-	username		= 'chrisPractice2018'
+    client_id       = '_VLlkPOoDXoaPQ',
+    client_secret   = 'c5jO1y_wSigePj1NE0aG-vjQcag',
+    password        = 'chrisPractice2018',
+    user_agent      = 'testscript by /u/chrisPractice2018',
+    username        = 'chrisPractice2018'
 
-	)
+    )
 
 
 
@@ -45,9 +45,9 @@ subreddits_list = ['forhire','forhire2','freelance']
 # with passed in subreddit name as argument
 def call_reddit(subreddit_name):
 
-	subreddit = reddit.subreddit(subreddit_name)
+    subreddit = reddit.subreddit(subreddit_name)
 
-	return subreddit
+    return subreddit
 
 
 
@@ -59,28 +59,28 @@ def call_reddit(subreddit_name):
 def process_results(func, number_of_results, term_to_look_for):
 
 
-	new_post = func.new(limit = number_of_results)
+    new_post = func.new(limit = number_of_results)
 
 
 
-	# Self explanatory
-	posting_list = [
+    # Self explanatory
+    posting_list = [
 
-	submission.title for submission in new_post if not submission.stickied
+    submission.title for submission in new_post if not submission.stickied
 
-	]
-
-
-	# Producing a filtered in conjunction with the gevin keyword
-	filtered_by_terms = [
-
-	each_title for each_title in posting_list if term_to_look_for in each_title
-
-	]
+    ]
 
 
+    # Producing a filtered in conjunction with the gevin keyword
+    filtered_by_terms = [
 
-	return filtered_by_terms
+    each_title for each_title in posting_list if term_to_look_for in each_title
+
+    ]
+
+
+
+    return filtered_by_terms
 
 
 
@@ -95,9 +95,9 @@ def process_results(func, number_of_results, term_to_look_for):
 # This function call each subreddit in the given list
 def call_subreddits_list(names_list):
 
-	called_subreddits = map(call_reddit, subreddits_list)
+    called_subreddits = map(call_reddit, subreddits_list)
 
-	return list(called_subreddits)
+    return list(called_subreddits)
 
 
 
@@ -107,9 +107,11 @@ def call_subreddits_list(names_list):
 # This function call Twilio API
 def call_twilio():
 
-	account_sid	= 'ACf7e44e9a6566ffc16a3b9dxxxxxxxxxx'
-	auth_token	= '425aa3e13fe91eb3cbcaf2xxxxxxxxxx'
-	client		= Client(account_sid, auth_token)
+    account_sid = 'ACf7e44e9a6566ffc16a3b9dxxxxxxxxxx'
+    auth_token  = '425aa3e13fe91eb3cbcaf2xxxxxxxxxx'
+    client      = Client(account_sid, auth_token)
 
-	return client
+    return client
+
+
 
