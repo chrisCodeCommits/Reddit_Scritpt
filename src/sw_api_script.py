@@ -11,7 +11,7 @@ parse the dictionary to output:
 - Species
 '''
 ##################################################################
-from requests import request
+import requests
 import json
 
 
@@ -20,7 +20,7 @@ import json
 
 
 # Pulling data from the API
-sw_api_request = request.get("https://swapi.co/api/people/?page=2&format=json")
+sw_api_request = requests.get("https://swapi.co/api/people/?page=2&format=json")
 
 # Making the data usuable for Python
 sw_usable_data = json.load(sw_api_request)
