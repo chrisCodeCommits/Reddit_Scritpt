@@ -151,16 +151,20 @@ swapi_people = sw_api_request["results"]
 
 #print(swapi_people)
 
+find_next = 0
 
-name = swapi_people[0]['name']
-specie = swapi_people[0]['species'][0]
-gender = swapi_people[0]['gender']
+for each_character in swapi_people:
 
-#print("")
-#print("Name: "+name+" | "+"Gender: male"+" | "+"Specie: "+specie)
-#print("")
+    name = swapi_people[find_next]['name']
+    specie = swapi_people[find_next]['species'][0]
+    gender = swapi_people[find_next]['gender']
 
-print(gender)
+    print("")
+    print("Name: "+name+" | "+"Gender: male"+" | "+"Specie: "+specie)
+    print("")
+    find_next +=1
+
+#print(gender)
 
 
 
