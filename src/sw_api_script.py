@@ -10,22 +10,33 @@ parse the dictionary to output:
 - All male characters names
 - Species
 '''
-##################################################################
+####################################################################################
 import requests
 import json
 
 
 
-
-
-
-# Pulling data from the API
 sw_api_request = requests.get("https://swapi.co/api/people/?page=2&format=json")
 
-print(sw_api_request)
-'''
+
+
+
+
+
+
+## ISSUE ####
+######### This line need adjustment ################################################
+
 # Making the data usuable for Python
 sw_usable_data = json.loads(sw_api_request)
+
+
+#####################################################################################
+
+
+
+
+
 
 
 
