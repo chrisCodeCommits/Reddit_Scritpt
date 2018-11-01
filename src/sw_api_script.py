@@ -12,42 +12,67 @@ parse the dictionary to output:
 '''
 ####################################################################################
 import requests
-import json
+import pdb
 
 
 
-sw_api_request = requests.get("https://swapi.co/api/people/?page=2&format=json")
+def get_all_male_people():
+    next_endpoint = "https://swapi.co/api/people/"
+    all_males = []
+
+    while next_endpoint:
+        print(next_endpoint)
+        response = requests.get(next_endpoint)
+
+        response_json = response.json()
+        people = response_json["results"]
+        next_endpoint = response_json['next']
+
+        for character in people:
+            if character['gender'] == "male":
+                all_males.append(character)
+
+    print("All done!")
+    return all_males
 
 
-# Making the data usuable for Python
-sw_usable_data = json.loads(sw_api_request.text)
+males = get_all_male_people()
 
-# Self explanatory
-swapi_people = sw_usable_data["results"]
+###### SWAPI TASKS TO COMPLETE ####################################
+'''
+STEP 1
+fetch the Json data from SWAPI and asign it to a variable to use
+in my code.
 
-
-
-# This variable will act as a counter in order to make the forloop
-# throughout each characheter details possible.
-find_next = 0
-
-
-for each_character in swapi_people:
-
-    name = swapi_people[find_next]['name']
-    specie = swapi_people[find_next]['species'][0]
-    gender = swapi_people[find_next]['gender']
-
-    # Adding a conditional statement in order to only output males characters
-    if gender == "male":
-
-        print("")
-        print("Name: "+name+" | "+"Gender: male"+" | "+"Specie: "+specie)
-        print("")
-
-    # Refers to the counter to make the loop possible! by each iteration
-    find_next += 1
+STEP 2
+parse the dictionary to output:
+- All male characters names
+- Species
+'''
+####################################################################################
+import requests
+import pdb
 
 
 
+def get_all_male_people():
+    next_endpoint = "https://swapi.co/api/people/"
+    all_males = []
 
+    while next_endpoint:
+        print(next_endpoint)
+        response = requests.get(next_endpoint)
+
+        response_json = response.json()
+        people = response_json["results"]
+        next_endpoint = response_json['next']
+
+        for character in people:
+            if character['gender'] == "male":
+                all_males.append(character)
+
+    print("All done!")
+    return all_males
+
+
+males = get_all_male_people()
