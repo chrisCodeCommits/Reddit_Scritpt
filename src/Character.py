@@ -1,9 +1,19 @@
 
 import pdb
+import requests
 
 class SWCharacter():
 
-    def __init__(self, name, birth_year, gender, hair_color, height, mass, skin_color):
+    def __init__(
+        self, name,
+        birth_year,
+        eye_color,
+        gender,
+        hair_color,
+        height,
+        mass,
+        skin_color
+        ):
 
         self.name       = name
         self.birth_year = birth_year
@@ -16,29 +26,39 @@ class SWCharacter():
         self.mass       = mass
         self.skin_color = skin_color
 
-
-
     def __str__(self):
         return {self.name}
 
-    def __repr__(self):
-        return f'SWCharacter("{self.name}")'
 
-    def introduce_myself(self):
-        print(f"Hi!, my name is {self.name}. I was born in {self.birth_year}.")
-
-    def load_char_from_api(self, char_id):
-
-
-# luke = SWCharacter("Luke Skywalker", 1973)
-# r2 = SWCharacter("R2-D2", 293994)
 
 
 def create_character_from_api(char_id):
     """
     Calls SWAPI and creates a SWCharacter Object with the stats below
     """
-    pass
+    response = requests.get(f'https://swapi.co/api/people/{char_id}')
+    resp_json = response.json()
+
+    personage = SWCharacter(
+
+    resp_json["name"],
+    resp_json["birth_year"],
+    resp_json["eye_color"],
+    resp_json["gender"],
+    resp_json["hair_color"],
+    resp_json["height"],
+    resp_json["mass"],
+    resp_json["skin_color"]
+
+    )
+
+    return personage.name
+
+
+#TEST
+print(create_character_from_api(8))
+
+
 
 
 
@@ -53,14 +73,3 @@ mass string -- The mass of the person in kilograms.
 skin_color string -- The skin color of this person.
 """
 
-""""
-NOT THESE
-homeworld string -- The URL of a planet resource, a planet that this person was born on or inhabits.
-films array -- An array of film resource URLs that this person has been in.
-species array -- An array of species resource URLs that this person belongs to.
-starships array -- An array of starship resource URLs that this person has piloted.
-vehicles array -- An array of vehicle resource URLs that this person has piloted.
-url string -- the hypermedia URL of this resource.
-created string -- the ISO 8601 date format of the time that this resource was created.
-edited strin
-"""
