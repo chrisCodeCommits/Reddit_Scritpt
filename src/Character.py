@@ -12,7 +12,14 @@ class SWCharacter():
         hair_color,
         height,
         mass,
-        skin_color
+        skin_color,
+        homeworld,
+        films,
+        species,
+        starships,
+        vehicles,
+        url,
+        created
         ):
 
         self.name       = name
@@ -25,6 +32,13 @@ class SWCharacter():
         self.height     = height
         self.mass       = mass
         self.skin_color = skin_color
+        self.homeworld  = homeworld
+        self.films      = films
+        self.species    = species
+        self.starships  = starships
+        self.vehicles   = vehicles
+        self.url        = url
+        self.created    = created
 
     def __str__(self):
         return {self.name}
@@ -48,8 +62,14 @@ def create_character_from_api(char_id):
     resp_json["hair_color"],
     resp_json["height"],
     resp_json["mass"],
-    resp_json["skin_color"]
-
+    resp_json["skin_color"],
+    resp_json["homeworld"],
+    resp_json["films"],
+    resp_json["species"],
+    resp_json["starships"],
+    resp_json["vehicles"],
+    resp_json["url"],
+    resp_json["created"],
     )
 
     return personage.name
