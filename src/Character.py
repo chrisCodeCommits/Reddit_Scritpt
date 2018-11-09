@@ -69,7 +69,8 @@ def create_character_from_api(char_id):
     resp_json["starships"],
     resp_json["vehicles"],
     resp_json["url"],
-    resp_json["created"],
+    resp_json["created"]
+
     )
 
     return personage.name
