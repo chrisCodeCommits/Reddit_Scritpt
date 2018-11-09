@@ -2,6 +2,9 @@
 import pdb
 import requests
 
+
+
+
 class SWCharacter():
 
     def __init__(
@@ -48,7 +51,7 @@ class SWCharacter():
 
 def create_character_from_api(char_id):
     """
-    Calls SWAPI and creates a SWCharacter Object with the stats below
+    Calls SWAPI and creates a SWCharacter Object
     """
     response = requests.get(f'https://swapi.co/api/people/{char_id}')
     resp_json = response.json()
@@ -76,21 +79,9 @@ def create_character_from_api(char_id):
     return personage.name
 
 
+
+
 #TEST
 print(create_character_from_api(8))
 
-
-
-
-
-"""
-name string -- The name of this person.
-birth_year string -- The birth year of the person, using the in-universe standard of BBY or ABY - Before the Battle of Yavin or After the Battle of Yavin. The Battle of Yavin is a battle that occurs at the end of Star Wars episode IV: A New Hope.
-eye_color string -- The eye color of this person. Will be "unknown" if not known or "n/a" if the person does not have an eye.
-gender string -- The gender of this person. Either "Male", "Female" or "unknown", "n/a" if the person does not have a gender.
-hair_color string -- The hair color of this person. Will be "unknown" if not known or "n/a" if the person does not have hair.
-height string -- The height of the person in centimeters.
-mass string -- The mass of the person in kilograms.
-skin_color string -- The skin color of this person.
-"""
 
