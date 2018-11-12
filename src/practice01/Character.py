@@ -52,7 +52,7 @@ id_number = int(input('Enter the character ID you want to create:'))
 
 
 
-def create_character_from_api(char_id):
+def create_character(char_id):
     """
     Calls SWAPI and creates a Character Object
     """
@@ -90,7 +90,7 @@ def create_character_from_api(char_id):
 
 
 #TEST
-print(create_character_from_api(id_number))
+print(create_character(id_number))
 print("")
 
 
