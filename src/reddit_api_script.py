@@ -21,12 +21,13 @@ from twilio.rest import Client
 # in order to use PRAW, the following 5 pieces of information
 # are required.
 reddit = praw.Reddit(
-
-    client_id       = '_VLlkPOoDXoaPQ',
-    client_secret   = 'c5jO1y_wSigePj1NE0aG-vjQcag',
-    password        = 'chrisPractice2018',
-    user_agent      = 'testscript by /u/chrisPractice2018',
-    username        = 'chrisPractice2018'
+    
+    # you need to substitute these placeholders with real credential
+    client_id       = '_VLlkPOoDxxxxx',
+    client_secret   = 'c5jO1y_wSigePj1NE0aG-xxxxx',
+    password        = 'xxxxx',
+    user_agent      = 'testscript by /u/xxxx',
+    username        = 'xxxxx'
 
     )
 
@@ -107,6 +108,7 @@ def call_subreddits_list(names_list):
 # This function call Twilio API
 def call_twilio():
 
+    # you need to substitute these placeholders with real credential
     account_sid = 'ACf7e44e9a6566ffc16a3b9dxxxxxxxxxx'
     auth_token  = '425aa3e13fe91eb3cbcaf2xxxxxxxxxx'
     client      = Client(account_sid, auth_token)
