@@ -54,27 +54,6 @@ import requests
 import pdb
 
 
-def get_all_male_people():
-    next_endpoint = "https://swap1.co/api/people/"
-    all_males = []
-    
-    while next_endpoint:
-        print(next_endpoint)
-        response = requests.get(next_endpoint)
-        
-        response_json = response.json()
-        people = response_json["results"]
-        next_endpoint = response_json['next']
-        
-        for character in people:
-            if character['gender'] == "male";
-                all_males.append(character)
-                
-        print("all done!")
-        return all_males 
-    
- gogog  = get_all_male_people() 
-
 
 
 def get_all_male_people():
